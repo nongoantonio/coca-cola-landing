@@ -44,6 +44,24 @@
   50%{ margin-top: -16px; }
 }
 
+/* --- Lata, flutua ao lado da garrafa com um ritmo proprio --- */
+.showcase__can{
+  position: absolute;
+  left: calc(50% + 190px);
+  bottom: 6%;
+  height: clamp(140px, 18vw, 220px);
+  transform: rotate(8deg);
+  filter:
+    drop-shadow(0 30px 40px rgba(0, 0, 0, 0.5))
+    drop-shadow(0 0 60px rgba(255, 45, 63, 0.3));
+  animation: showcase-float-can 7.5s ease-in-out infinite 0.8s;
+}
+
+@keyframes showcase-float-can{
+  0%, 100%{ transform: rotate(8deg) translateY(0); }
+  50%{ transform: rotate(4deg) translateY(-14px); }
+}
+
 .showcase__stat{
   position: absolute;
   display: flex;
@@ -114,5 +132,12 @@
     height: auto;
     gap: 20px;
     padding: 20px 0;
+  }
+  .showcase__can{
+    position: static;
+    transform: none;
+    animation: none;
+    height: 140px;
+    margin: 0 auto;
   }
 }

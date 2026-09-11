@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import bottle from '../assets/bottle.png'
 import Bubbles from './Bubbles'
+import IceCube from './decor/IceCube'
+import GlassCoke from './decor/GlassCoke'
 import './Hero.css'
 
 function Hero() {
@@ -17,6 +19,11 @@ function Hero() {
     <section id="topo" className={`hero ${ready ? 'hero--ready' : ''}`}>
       <div className="hero__glow" />
       <Bubbles count={16} />
+
+      {/* Decoracoes flutuantes: gelo e copo, no lugar das folhas/laranjas da referencia */}
+      <IceCube size={64} className="hero__decor hero__decor--ice-a" />
+      <IceCube size={44} className="hero__decor hero__decor--ice-b" />
+      <GlassCoke size={150} className="hero__decor hero__decor--glass" />
 
       <div className="container hero__stage">
         <div className="hero__visual">

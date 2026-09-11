@@ -1,12 +1,13 @@
 import { useRef } from 'react'
 import bottle from '../assets/bottle.png'
+import can from '../assets/can.png'
 import Bubbles from './Bubbles'
 import './Showcase.css'
 
 const STATS = [
   { value: '200+', label: 'paises onde e vendida' },
   { value: '1,9 mM', label: 'servicos consumidos por dia' },
-  { value: '500+', label: 'marcas na familia Coca-Cola' },
+  { value: '2', label: 'formatos: garrafa e lata' },
 ]
 
 function Showcase() {
@@ -49,6 +50,7 @@ function Showcase() {
           onMouseLeave={handleMouseLeave}
         >
           <img src={bottle} alt="Garrafa de Coca-Cola em destaque" className="showcase__bottle" />
+          <img src={can} alt="Lata de Coca-Cola" className="showcase__can" />
 
           {STATS.map((stat, i) => (
             <div className={`showcase__stat showcase__stat--${i + 1}`} key={stat.label}>
