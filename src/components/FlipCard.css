@@ -1,0 +1,161 @@
+.flip-card{
+  position: relative;
+  width: 340px;
+  height: 340px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  transition: width 0.5s var(--ease-brand);
+}
+
+/* Em ecrãs largos, o cartao expande ao passar o rato, tal como no original */
+@media (min-width: 720px){
+  .flip-card:hover{
+    width: 620px;
+    transition-delay: 0.5s;
+  }
+}
+
+.flip-card__circle{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flip-card__circle::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  border: 8px solid var(--cc-red-bright);
+  background: var(--cc-black-soft);
+  filter: drop-shadow(0 0 10px rgba(255, 45, 63, 0.6)) drop-shadow(0 0 60px rgba(255, 45, 63, 0.35));
+  transition: width 0.5s var(--ease-brand), height 0.5s var(--ease-brand), border-radius 0.5s var(--ease-brand), background 0.5s ease;
+  transition-delay: 0.75s, 0.75s, 0.75s, 1s;
+}
+
+.flip-card:hover .flip-card__circle::before{
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  background: linear-gradient(135deg, var(--cc-red-bright), var(--cc-red));
+  transition-delay: 0.5s;
+}
+
+.flip-card__logo{
+  position: relative;
+  width: 190px;
+  transition: transform 0.5s var(--ease-brand);
+  transition-delay: 0.5s;
+}
+
+.flip-card:hover .flip-card__logo{
+  transform: scale(0);
+  transition-delay: 0s;
+}
+
+.flip-card__product{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 300px;
+  transform: translate(-50%, -50%) scale(0) rotate(305deg);
+  transition: 0.5s ease-in-out;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
+}
+
+.flip-card:hover .flip-card__product{
+  transition-delay: 0.75s;
+  transform: translate(-50%, -50%) scale(1) rotate(8deg);
+  top: 42%;
+  left: 76%;
+  height: 380px;
+}
+
+.flip-card__content{
+  position: absolute;
+  width: 52%;
+  left: 20%;
+  padding: 20px 20px 20px 36px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s var(--ease-brand);
+}
+
+.flip-card:hover .flip-card__content{
+  transition-delay: 0.75s;
+  opacity: 1;
+  visibility: visible;
+  left: 0;
+}
+
+.flip-card__content h3{
+  font-family: var(--font-display);
+  color: var(--cc-cream);
+  font-size: 1.7em;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.flip-card__content p{
+  color: rgba(250, 243, 231, 0.88);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.flip-card__content a{
+  position: relative;
+  color: var(--cc-red);
+  background: var(--cc-cream);
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-top: 16px;
+}
+
+/* Em ecrãs pequenos nao ha hover fiavel: mostramos o conteudo sempre aberto */
+@media (max-width: 719px){
+  .flip-card{
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .flip-card__circle::before,
+  .flip-card__logo{
+    display: none;
+  }
+  .flip-card__circle{
+    position: relative;
+    height: 220px;
+  }
+  .flip-card__product{
+    position: relative;
+    transform: none;
+    top: 0;
+    left: 0;
+    height: 220px;
+    margin: 0 auto;
+  }
+  .flip-card__content{
+    position: relative;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    opacity: 1;
+    visibility: visible;
+    text-align: center;
+  }
+}

@@ -1,0 +1,110 @@
+/* Tipografia: Fraunces para titulos com carater, Poppins para o resto */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+  /* ---------- Paleta de marca (tokens de cor) ---------- */
+  --cc-black: #0a0808;        /* fundo principal, quase preto */
+  --cc-black-soft: #161010;   /* superficies elevadas sobre o preto */
+  --cc-red: #c8102e;          /* vermelho Coca-Cola */
+  --cc-red-bright: #ff2d3f;   /* vermelho vivo para brilho/glow */
+  --cc-red-deep: #6e0b1b;     /* vermelho profundo para sombras/degrade */
+  --cc-cream: #faf3e7;        /* branco quente para texto sobre preto */
+  --cc-cream-dim: #cfc6b8;    /* texto secundario sobre preto */
+
+  /* ---------- Tipografia ---------- */
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Poppins', sans-serif;
+
+  /* ---------- Espacamento e forma ---------- */
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 10px;
+  --container-w: min(1240px, 92vw);
+
+  --ease-brand: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  background: var(--cc-black);
+  color: var(--cc-cream);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img{
+  max-width: 100%;
+  display: block;
+}
+
+a{
+  color: inherit;
+  text-decoration: none;
+}
+
+button{
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul{
+  list-style: none;
+}
+
+/* Container central reutilizado em todas as seccoes */
+.container{
+  width: var(--container-w);
+  margin: 0 auto;
+}
+
+/* Rotulo pequeno usado antes de titulos de seccao */
+.section-kicker{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: var(--cc-red-bright);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.section-kicker::before{
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cc-red-bright);
+  box-shadow: 0 0 12px var(--cc-red-bright);
+}
+
+/* Respeita utilizadores que preferem menos movimento */
+@media (prefers-reduced-motion: reduce){
+  *{
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Foco visivel para navegacao por teclado */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible{
+  outline: 2px solid var(--cc-red-bright);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
