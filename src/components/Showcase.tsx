@@ -1,19 +1,18 @@
 import { useRef } from 'react'
 import bottle from '../assets/bottle.png'
 import can from '../assets/can.png'
-import Bubbles from './Bubbles'
 import './Showcase.css'
 
 const STATS = [
-  { value: '200+', label: 'paises onde e vendida' },
-  { value: '1,9 mM', label: 'servicos consumidos por dia' },
-  { value: '2', label: 'formatos: garrafa e lata' },
+  { value: '200+', label: 'Paises onde e vendida' },
+  { value: '1,9 mM', label: 'Servicos consumidos por dia' },
+  { value: '2', label: 'Formatos: garrafa e lata' },
 ]
 
 function Showcase() {
   const stageRef = useRef<HTMLDivElement>(null)
 
-  // Move a garrafa ligeiramente de acordo com a posicao do rato (paralaxe)
+  // Move a composicao ligeiramente de acordo com a posicao do rato (paralaxe)
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     const stage = stageRef.current
     if (!stage) return
@@ -22,8 +21,8 @@ function Showcase() {
     const relativeX = (event.clientX - rect.left) / rect.width - 0.5
     const relativeY = (event.clientY - rect.top) / rect.height - 0.5
 
-    stage.style.setProperty('--rx', `${relativeY * -10}deg`)
-    stage.style.setProperty('--ry', `${relativeX * 14}deg`)
+    stage.style.setProperty('--rx', `${relativeY * -6}deg`)
+    stage.style.setProperty('--ry', `${relativeX * 8}deg`)
   }
 
   const handleMouseLeave = () => {
@@ -35,29 +34,34 @@ function Showcase() {
 
   return (
     <section id="mundo" className="showcase">
-      <Bubbles count={10} className="showcase__bubbles" />
-
-      <div className="container showcase__inner">
-        <div className="showcase__header">
-          <p className="section-kicker">Pelo mundo</p>
-          <h2>Um sabor, milhoes de historias.</h2>
-        </div>
-
+      <div className="container showcase__grid">
         <div
-          className="showcase__stage"
+          className="showcase__visual"
           ref={stageRef}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
         >
-          <img src={bottle} alt="Garrafa de Coca-Cola em destaque" className="showcase__bottle" />
+          <div className="showcase__glow" aria-hidden="true" />
+          <img src={bottle} alt="Garrafa de Coca-Cola" className="showcase__bottle" />
           <img src={can} alt="Lata de Coca-Cola" className="showcase__can" />
+        </div>
 
-          {STATS.map((stat, i) => (
-            <div className={`showcase__stat showcase__stat--${i + 1}`} key={stat.label}>
-              <strong>{stat.value}</strong>
-              <span>{stat.label}</span>
-            </div>
-          ))}
+        <div className="showcase__content">
+          <p className="section-kicker">Pelo mundo</p>
+          <h2 className="showcase__title">Um sabor, milhoes de historias.</h2>
+          <p className="showcase__lead">
+            De Lisboa a Tokyo, a mesma receita atravessa fronteiras e culturas
+            sem perder aquilo que a torna reconhecivel em qualquer lugar.
+          </p>
+
+          <dl className="showcase__stats">
+            {STATS.map((stat) => (
+              <div className="showcase__stat" key={stat.label}>
+                <dt>{stat.value}</dt>
+                <dd>{stat.label}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </div>
     </section>
