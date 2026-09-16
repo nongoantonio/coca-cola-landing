@@ -36,7 +36,7 @@
   height: 340px;
   border-radius: 50%;
   border: 8px solid var(--cc-red-bright);
-  background: var(--cc-black-soft);
+  background: var(--flip-circle-bg);
   filter: drop-shadow(0 0 10px rgba(255, 45, 63, 0.6)) drop-shadow(0 0 60px rgba(255, 45, 63, 0.35));
   transition: width 0.5s var(--ease-brand), height 0.5s var(--ease-brand), border-radius 0.5s var(--ease-brand), background 0.5s ease;
   transition-delay: 0.75s, 0.75s, 0.75s, 1s;
@@ -99,14 +99,14 @@
 
 .flip-card__content h3{
   font-family: var(--font-display);
-  color: var(--cc-cream);
+  color: var(--text);
   font-size: 1.7em;
   line-height: 1.1;
   margin-bottom: 12px;
 }
 
 .flip-card__content p{
-  color: rgba(250, 243, 231, 0.88);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 0.92rem;
   line-height: 1.55;
 }
@@ -114,7 +114,7 @@
 .flip-card__content a{
   position: relative;
   color: var(--cc-red);
-  background: var(--cc-cream);
+  background: var(--text);
   padding: 10px 20px;
   border-radius: 10px;
   display: inline-block;

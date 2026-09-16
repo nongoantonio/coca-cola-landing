@@ -34,3 +34,12 @@ src/
 - O cartao interativo da seccao "Historia" (`FlipCard`) e uma adaptacao do componente CSS fornecido, com as cores e imagens da marca.
 - Os icones vêm da biblioteca `lucide-react`.
 - As fontes `Fraunces` e `Poppins` sao carregadas via Google Fonts no `src/styles/index.css`.
+
+## Modo claro / escuro
+
+O site tem um botao na barra de navegacao que alterna entre **modo escuro** (predefinido) e **modo claro**.
+
+- A escolha fica guardada no `localStorage`, por isso mantem-se entre visitas.
+- Na primeira visita, o site segue a preferencia do sistema operativo do utilizador.
+- As cores estao definidas como *tokens* em `src/styles/index.css` (`--bg`, `--text`, `--border`, etc.).
+  Para ajustar qualquer tema basta mudar os valores nos blocos `:root` / `[data-theme='light']`.

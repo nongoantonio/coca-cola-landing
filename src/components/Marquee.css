@@ -23,12 +23,12 @@
   font-weight: 700;
   font-size: 0.95rem;
   letter-spacing: 0.04em;
-  color: var(--cc-cream);
+  color: var(--text);
   white-space: nowrap;
 }
 
 .marquee__dot{
-  color: rgba(250, 243, 231, 0.6);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 @keyframes marquee-scroll{

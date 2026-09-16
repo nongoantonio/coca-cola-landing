@@ -2,14 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 :root{
-  /* ---------- Paleta de marca (tokens de cor) ---------- */
-  --cc-black: #0a0808;        /* fundo principal, quase preto */
-  --cc-black-soft: #161010;   /* superficies elevadas sobre o preto */
+  /* ---------- Cores fixas da marca (nao mudam com o tema) ---------- */
   --cc-red: #c8102e;          /* vermelho Coca-Cola */
   --cc-red-bright: #ff2d3f;   /* vermelho vivo para brilho/glow */
   --cc-red-deep: #6e0b1b;     /* vermelho profundo para sombras/degrade */
-  --cc-cream: #faf3e7;        /* branco quente para texto sobre preto */
-  --cc-cream-dim: #cfc6b8;    /* texto secundario sobre preto */
 
   /* ---------- Tipografia ---------- */
   --font-display: 'Fraunces', serif;
@@ -24,6 +20,69 @@
   --ease-brand: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* =========================================================
+   TEMA ESCURO (predefinido)
+   Tokens semanticos: os componentes usam sempre estes nomes,
+   nunca cores fixas, para o tema poder ser trocado de uma vez.
+   ========================================================= */
+:root,
+[data-theme='dark']{
+  --bg: #0a0808;             /* fundo principal */
+  --bg-soft: #161010;        /* superficies elevadas */
+  --bg-deep: #060505;        /* fundo do rodape */
+  --surface: rgba(250, 243, 231, 0.05);   /* cartoes */
+  --surface-strong: rgba(22, 16, 16, 0.75);
+  --nav-bg: rgba(10, 8, 8, 0.78);
+
+  --text: #faf3e7;           /* texto principal */
+  --text-dim: #cfc6b8;       /* texto secundario */
+  --text-invert: #0a0808;    /* texto sobre fundos vermelhos claros */
+
+  --border: rgba(250, 243, 231, 0.12);
+  --border-soft: rgba(250, 243, 231, 0.08);
+  --border-strong: rgba(250, 243, 231, 0.28);
+
+  --glow-strength: 0.35;     /* intensidade dos brilhos vermelhos */
+  --bubble-color: rgba(255, 255, 255, 0.85);
+  --shadow-color: rgba(0, 0, 0, 0.55);
+  --wordmark-fade: rgba(250, 243, 231, 0.45);
+  --tint-red: rgba(200, 16, 46, 0.28);     /* halo vermelho de fundo */
+  --glow-red: rgba(255, 45, 63, 0.4);      /* brilho a volta dos produtos */
+  --hero-bg: linear-gradient(180deg, #0a0808 0%, #120a0a 55%, #0a0808 100%);
+  --flip-circle-bg: #161010;               /* interior do circulo do cartao */
+}
+
+/* =========================================================
+   TEMA CLARO
+   Fundo creme quente, para nao perder o ar retro da marca.
+   ========================================================= */
+[data-theme='light']{
+  --bg: #fdf6ec;
+  --bg-soft: #f6ebdc;
+  --bg-deep: #f2e4d2;
+  --surface: rgba(200, 16, 46, 0.05);
+  --surface-strong: rgba(255, 255, 255, 0.85);
+  --nav-bg: rgba(253, 246, 236, 0.82);
+
+  --text: #1b1211;
+  --text-dim: #6b5b52;
+  --text-invert: #fdf6ec;
+
+  --border: rgba(27, 18, 17, 0.14);
+  --border-soft: rgba(27, 18, 17, 0.08);
+  --border-strong: rgba(27, 18, 17, 0.3);
+
+  --glow-strength: 0.16;
+  --bubble-color: rgba(200, 16, 46, 0.5);
+  --shadow-color: rgba(110, 11, 27, 0.2);
+  --wordmark-fade: rgba(110, 11, 27, 0.55);
+  --tint-red: rgba(200, 16, 46, 0.12);
+  --glow-red: rgba(255, 45, 63, 0.16);
+  --hero-bg: linear-gradient(180deg, #fdf6ec 0%, #fbeade 55%, #fdf6ec 100%);
+  /* mantem-se escuro para o logotipo branco continuar legivel */
+  --flip-circle-bg: #1b1211;
+}
+
 *{
   margin: 0;
   padding: 0;
@@ -35,11 +94,13 @@ html{
 }
 
 body{
-  background: var(--cc-black);
-  color: var(--cc-cream);
+  background: var(--bg);
+  color: var(--text);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  /* Transicao suave ao alternar entre temas */
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
 img{
@@ -76,7 +137,7 @@ ul{
   gap: 10px;
   font-size: 0.8rem;
   letter-spacing: 0.04em;
-  color: var(--cc-red-bright);
+  color: var(--cc-red);
   font-weight: 600;
   margin-bottom: 14px;
 }
@@ -86,7 +147,7 @@ ul{
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--cc-red-bright);
+  background: var(--cc-red);
   box-shadow: 0 0 12px var(--cc-red-bright);
 }
 
@@ -107,4 +168,14 @@ input:focus-visible{
   outline: 2px solid var(--cc-red-bright);
   outline-offset: 4px;
   border-radius: 4px;
+}
+
+/* =========================================================
+   AJUSTES DO TEMA CLARO
+   O logotipo fornecido e branco: no fundo claro passa a preto,
+   para continuar legivel sem precisar de um segundo ficheiro.
+   ========================================================= */
+[data-theme='light'] .navbar__logo,
+[data-theme='light'] .footer__logo{
+  filter: brightness(0);
 }

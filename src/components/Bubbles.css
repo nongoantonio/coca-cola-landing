@@ -9,7 +9,7 @@
   position: absolute;
   bottom: -40px;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.08) 70%);
+  background: radial-gradient(circle at 30% 30%, var(--bubble-color), transparent 70%);
   opacity: 0;
   animation-name: bubble-rise;
   animation-timing-function: ease-in;

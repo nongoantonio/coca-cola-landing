@@ -1,7 +1,14 @@
 import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import logo from '../assets/logo.png'
+import ThemeToggle from './ThemeToggle'
+import type { Theme } from '../hooks/useTheme'
 import './Navbar.css'
+
+interface NavbarProps {
+  theme: Theme
+  onToggleTheme: () => void
+}
 
 const LINKS = [
   { href: '#historia', label: 'Historia' },
@@ -10,7 +17,7 @@ const LINKS = [
   { href: '#contacto', label: 'Contacto' },
 ]
 
-function Navbar() {
+function Navbar({ theme, onToggleTheme }: NavbarProps) {
   // Controla o fundo da barra ao fazer scroll
   const [scrolled, setScrolled] = useState(false)
   // Controla o menu em ecrãs pequenos
@@ -37,9 +44,12 @@ function Navbar() {
           ))}
         </nav>
 
-        <a href="#mundo" className="navbar__cta">
-          Encontrar perto de mim
-        </a>
+        <div className="navbar__actions">
+          <ThemeToggle theme={theme} onToggle={onToggleTheme} />
+          <a href="#mundo" className="navbar__cta">
+            Encontrar perto de mim
+          </a>
+        </div>
 
         <button
           className="navbar__toggle"

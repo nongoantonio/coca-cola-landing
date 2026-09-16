@@ -11,7 +11,7 @@
 
 .navbar--solid{
   padding: 14px 0;
-  background: rgba(10, 8, 8, 0.78);
+  background: var(--nav-bg);
   backdrop-filter: blur(14px);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06), 0 12px 30px rgba(0, 0, 0, 0.35);
 }
@@ -39,7 +39,7 @@
   gap: 34px;
   font-size: 0.92rem;
   font-weight: 500;
-  color: var(--cc-cream-dim);
+  color: var(--text-dim);
 }
 
 .navbar__links a{
@@ -60,15 +60,21 @@
 }
 
 .navbar__links a:hover{
-  color: var(--cc-cream);
+  color: var(--text);
 }
 
 .navbar__links a:hover::after{
   width: 100%;
 }
 
+.navbar__actions{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .navbar__cta{
-  border: 1px solid rgba(250, 243, 231, 0.28);
+  border: 1px solid var(--border-strong);
   padding: 10px 20px;
   border-radius: 999px;
   font-size: 0.85rem;
@@ -85,7 +91,7 @@
 
 .navbar__toggle{
   display: none;
-  color: var(--cc-cream);
+  color: var(--text);
 }
 
 .navbar__mobile{
@@ -107,7 +113,7 @@
     gap: 4px;
     max-height: 0;
     overflow: hidden;
-    background: rgba(10, 8, 8, 0.98);
+    background: var(--bg);
     transition: max-height 0.4s var(--ease-brand);
   }
 
@@ -119,7 +125,7 @@
     padding: 16px var(--container-w, 6vw);
     padding-left: 6vw;
     font-size: 0.95rem;
-    color: var(--cc-cream-dim);
+    color: var(--text-dim);
     border-top: 1px solid rgba(255, 255, 255, 0.06);
   }
 

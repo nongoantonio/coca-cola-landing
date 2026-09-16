@@ -6,8 +6,8 @@
   overflow: hidden;
   padding: 150px 0 80px;
   background:
-    radial-gradient(60% 50% at 50% 18%, rgba(200, 16, 46, 0.28), transparent 70%),
-    linear-gradient(180deg, #0a0808 0%, #120a0a 55%, #0a0808 100%);
+    radial-gradient(60% 50% at 50% 18%, var(--tint-red), transparent 70%),
+    var(--hero-bg);
 }
 
 .hero__glow{
@@ -17,7 +17,7 @@
   width: 620px;
   height: 620px;
   transform: translateX(-50%);
-  background: radial-gradient(circle, rgba(255, 45, 63, 0.35), transparent 65%);
+  background: radial-gradient(circle, var(--glow-red), transparent 65%);
   filter: blur(20px);
   pointer-events: none;
 }
@@ -59,7 +59,7 @@
   line-height: 0.82;
   letter-spacing: -0.02em;
   white-space: nowrap;
-  background: linear-gradient(180deg, var(--cc-cream) 40%, rgba(250, 243, 231, 0.45));
+  background: linear-gradient(180deg, var(--text) 40%, var(--wordmark-fade));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -92,7 +92,7 @@
   opacity: 0;
   filter:
     drop-shadow(0 35px 50px rgba(0, 0, 0, 0.6))
-    drop-shadow(0 0 90px rgba(255, 45, 63, 0.4));
+    drop-shadow(0 0 90px var(--glow-red));
   transition: opacity 0.9s var(--ease-brand) 0.3s, transform 1s var(--ease-brand) 0.3s;
 }
 
@@ -128,7 +128,7 @@
 }
 
 .hero__lead{
-  color: var(--cc-cream-dim);
+  color: var(--text-dim);
   font-size: 1.02rem;
   line-height: 1.6;
   margin-bottom: 34px;
@@ -156,7 +156,7 @@
 
 .btn--primary{
   background: linear-gradient(135deg, var(--cc-red-bright), var(--cc-red));
-  color: var(--cc-cream);
+  color: var(--text);
   box-shadow: 0 14px 30px rgba(200, 16, 46, 0.4);
 }
 
@@ -166,12 +166,12 @@
 }
 
 .btn--ghost{
-  border: 1px solid rgba(250, 243, 231, 0.3);
-  color: var(--cc-cream);
+  border: 1px solid var(--border-strong);
+  color: var(--text);
 }
 
 .btn--ghost:hover{
-  border-color: var(--cc-cream);
+  border-color: var(--text);
   transform: translateY(-2px);
 }
 
@@ -186,7 +186,7 @@
   gap: 6px;
   font-size: 0.72rem;
   letter-spacing: 0.06em;
-  color: var(--cc-cream-dim);
+  color: var(--text-dim);
   z-index: 1;
   animation: hero-bounce 2.6s ease-in-out infinite;
 }
