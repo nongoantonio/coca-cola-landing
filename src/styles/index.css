@@ -46,9 +46,9 @@
   --bubble-color: rgba(255, 255, 255, 0.85);
   --shadow-color: rgba(0, 0, 0, 0.55);
   --wordmark-fade: rgba(250, 243, 231, 0.45);
-  --tint-red: rgba(200, 16, 46, 0.28);     /* halo vermelho de fundo */
-  --glow-red: rgba(255, 45, 63, 0.4);      /* brilho a volta dos produtos */
-  --hero-bg: linear-gradient(180deg, #0a0808 0%, #120a0a 55%, #0a0808 100%);
+  --tint-red: rgba(200, 16, 46, 0.55);     /* halo vermelho de fundo */
+  --glow-red: rgba(255, 45, 63, 0.5);      /* brilho a volta dos produtos */
+  --hero-bg: linear-gradient(155deg, #4a0710 0%, #23060a 45%, #0a0808 100%);
   --flip-circle-bg: #161010;               /* interior do circulo do cartao */
 }
 
@@ -76,9 +76,9 @@
   --bubble-color: rgba(200, 16, 46, 0.5);
   --shadow-color: rgba(110, 11, 27, 0.2);
   --wordmark-fade: rgba(110, 11, 27, 0.55);
-  --tint-red: rgba(200, 16, 46, 0.12);
-  --glow-red: rgba(255, 45, 63, 0.16);
-  --hero-bg: linear-gradient(180deg, #fdf6ec 0%, #fbeade 55%, #fdf6ec 100%);
+  --tint-red: rgba(200, 16, 46, 0.16);
+  --glow-red: rgba(255, 45, 63, 0.2);
+  --hero-bg: linear-gradient(155deg, #fdf1e6 0%, #fbe3d6 45%, #fdf6ec 100%);
   /* mantem-se escuro para o logotipo branco continuar legivel */
   --flip-circle-bg: #1b1211;
 }
@@ -175,7 +175,10 @@ input:focus-visible{
    O logotipo fornecido e branco: no fundo claro passa a preto,
    para continuar legivel sem precisar de um segundo ficheiro.
    ========================================================= */
-[data-theme='light'] .navbar__logo,
+[data-theme='light'] .navbar__logo{
+  filter: brightness(0) drop-shadow(0 0 14px rgba(255, 45, 63, 0.45));
+}
+
 [data-theme='light'] .footer__logo{
   filter: brightness(0);
 }

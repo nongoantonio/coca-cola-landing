@@ -12,12 +12,12 @@
 
 .hero__glow{
   position: absolute;
-  top: 8%;
+  top: 4%;
   left: 50%;
-  width: 620px;
-  height: 620px;
+  width: 800px;
+  height: 800px;
   transform: translateX(-50%);
-  background: radial-gradient(circle, var(--glow-red), transparent 65%);
+  background: radial-gradient(circle, var(--glow-red), transparent 60%);
   filter: blur(20px);
   pointer-events: none;
 }
