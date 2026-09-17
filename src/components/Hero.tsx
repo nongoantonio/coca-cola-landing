@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import bottle from '../assets/bottle.png'
 import Bubbles from './Bubbles'
+import LemonSlice from './decor/LemonSlice'
+import BottleCap from './decor/BottleCap'
 import './Hero.css'
 
 function Hero() {
@@ -17,6 +19,11 @@ function Hero() {
     <section id="topo" className={`hero ${ready ? 'hero--ready' : ''}`}>
       <div className="hero__glow" />
       <Bubbles count={16} />
+
+      {/* Decoracoes flutuantes: limao e tampas, no lugar das folhas/laranja da referencia */}
+      <BottleCap size={92} rotate={-8} className="hero__decor hero__decor--cap-a" />
+      <BottleCap size={62} rotate={14} className="hero__decor hero__decor--cap-b" />
+      <LemonSlice size={168} className="hero__decor hero__decor--lemon" />
 
       <div className="container hero__stage">
         <div className="hero__visual">

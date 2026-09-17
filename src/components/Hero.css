@@ -207,3 +207,51 @@
     height: clamp(220px, 60vw, 320px);
   }
 }
+
+/* --- Decoracoes flutuantes (limao e tampas), equivalentes as folhas/laranja --- */
+.hero__decor{
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 1s var(--ease-brand) 0.55s;
+}
+
+.hero--ready .hero__decor{
+  opacity: 1;
+}
+
+.hero__decor--lemon{
+  top: 12%;
+  left: 40%;
+  animation: decor-float 8s ease-in-out infinite;
+}
+
+.hero__decor--cap-a{
+  top: 16%;
+  right: 8%;
+  animation: decor-float 7s ease-in-out infinite 0.4s;
+}
+
+.hero__decor--cap-b{
+  bottom: 14%;
+  left: 9%;
+  animation: decor-float 9s ease-in-out infinite 1s;
+}
+
+@keyframes decor-float{
+  0%, 100%{ transform: translateY(0) rotate(0deg); }
+  50%{ transform: translateY(-14px) rotate(3deg); }
+}
+
+@media (max-width: 900px){
+  .hero__decor--lemon{
+    left: 30%;
+    top: 8%;
+  }
+}
+
+@media (max-width: 640px){
+  .hero__decor{
+    display: none;
+  }
+}
