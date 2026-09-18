@@ -43,3 +43,11 @@ O site tem um botao na barra de navegacao que alterna entre **modo escuro** (pre
 - Na primeira visita, o site segue a preferencia do sistema operativo do utilizador.
 - As cores estao definidas como *tokens* em `src/styles/index.css` (`--bg`, `--text`, `--border`, etc.).
   Para ajustar qualquer tema basta mudar os valores nos blocos `:root` / `[data-theme='light']`.
+
+## Idioma (Português / Inglês)
+
+O site tem um seletor **PT / EN** na barra de navegação, ao lado do botão de tema.
+
+- Todo o texto visível vem de um único ficheiro de traduções: `src/i18n/translations.ts`.
+- O idioma escolhido fica guardado no `localStorage` e mantém-se entre visitas.
+- Para editar ou acrescentar texto, edita esse ficheiro — cada secção lê a sua parte de lá (`t.hero`, `t.story`, `t.footer`, etc.) em vez de ter frases escritas directamente nos componentes.

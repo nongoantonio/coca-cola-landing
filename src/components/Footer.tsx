@@ -1,24 +1,12 @@
 import { useState } from 'react'
 import { Instagram, Facebook, Youtube, Twitter, ArrowRight } from 'lucide-react'
 import logo from '../assets/logo.png'
+import { useLanguage } from '../i18n/LanguageContext'
 import './Footer.css'
 
-const COLUMNS = [
-  {
-    title: 'Explorar',
-    links: ['Historia', 'O Sabor', 'Pelo Mundo', 'Sustentabilidade'],
-  },
-  {
-    title: 'Produtos',
-    links: ['Coca-Cola Original', 'Coca-Cola Zero', 'Coca-Cola Sem Cafeina', 'Edicoes Limitadas'],
-  },
-  {
-    title: 'Suporte',
-    links: ['Perguntas Frequentes', 'Contacto', 'Imprensa', 'Carreiras'],
-  },
-]
-
 function Footer() {
+  const { t } = useLanguage()
+
   // Estado local apenas para dar feedback visual ao subscrever a newsletter
   const [email, setEmail] = useState('')
   const [sent, setSent] = useState(false)
@@ -36,22 +24,22 @@ function Footer() {
       <div className="container footer__top">
         <div className="footer__intro">
           <h2>
-            Junte-se a conversa. <br /> Sabor todos os dias.
+            {t.footer.headingLine1} <br /> {t.footer.headingLine2}
           </h2>
-          <p>Novidades, edicoes limitadas e as historias por tras da marca, direto na sua caixa de entrada.</p>
+          <p>{t.footer.blurb}</p>
         </div>
 
         <form className="footer__form" onSubmit={handleSubmit}>
           <input
             type="email"
             required
-            placeholder="o.seu@email.com"
+            placeholder={t.footer.emailPlaceholder}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            aria-label="O seu endereco de email"
+            aria-label={t.footer.emailLabel}
           />
           <button type="submit">
-            {sent ? 'Subscrito' : 'Subscrever'}
+            {sent ? t.footer.subscribed : t.footer.subscribe}
             <ArrowRight size={16} />
           </button>
         </form>
@@ -60,10 +48,7 @@ function Footer() {
       <div className="container footer__grid">
         <div className="footer__brand">
           <img src={logo} alt="Coca-Cola" className="footer__logo" />
-          <p>
-            Desde 1886 a espalhar frescura e momentos de felicidade partilhada,
-            um gole a cada vez.
-          </p>
+          <p>{t.footer.brandBlurb}</p>
           <div className="footer__social">
             <a href="#" aria-label="Instagram"><Instagram size={18} /></a>
             <a href="#" aria-label="Facebook"><Facebook size={18} /></a>
@@ -72,7 +57,7 @@ function Footer() {
           </div>
         </div>
 
-        {COLUMNS.map((col) => (
+        {t.footer.columns.map((col) => (
           <div className="footer__column" key={col.title}>
             <h4>{col.title}</h4>
             <ul>
@@ -87,11 +72,11 @@ function Footer() {
       </div>
 
       <div className="container footer__bottom">
-        <span>© {new Date().getFullYear()} Coca-Cola. Todos os direitos reservados.</span>
+        <span>© {new Date().getFullYear()} Coca-Cola. {t.footer.rights}</span>
         <div className="footer__legal">
-          <a href="#">Privacidade</a>
-          <a href="#">Termos</a>
-          <a href="#">Cookies</a>
+          {t.footer.legal.map((label) => (
+            <a href="#" key={label}>{label}</a>
+          ))}
         </div>
       </div>
     </footer>

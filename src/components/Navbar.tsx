@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import logo from '../assets/logo.png'
 import ThemeToggle from './ThemeToggle'
+import LanguageToggle from './LanguageToggle'
 import type { Theme } from '../hooks/useTheme'
+import { useLanguage } from '../i18n/LanguageContext'
 import './Navbar.css'
 
 interface NavbarProps {
@@ -10,14 +12,9 @@ interface NavbarProps {
   onToggleTheme: () => void
 }
 
-const LINKS = [
-  { href: '#historia', label: 'Historia' },
-  { href: '#sabor', label: 'O Sabor' },
-  { href: '#mundo', label: 'Pelo Mundo' },
-  { href: '#contacto', label: 'Contacto' },
-]
-
 function Navbar({ theme, onToggleTheme }: NavbarProps) {
+  const { t, lang, toggleLanguage } = useLanguage()
+
   // Controla o fundo da barra ao fazer scroll
   const [scrolled, setScrolled] = useState(false)
   // Controla o menu em ecrãs pequenos
@@ -29,6 +26,13 @@ function Navbar({ theme, onToggleTheme }: NavbarProps) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  const links = [
+    { href: '#historia', label: t.nav.history },
+    { href: '#sabor', label: t.nav.taste },
+    { href: '#mundo', label: t.nav.world },
+    { href: '#contacto', label: t.nav.contact },
+  ]
+
   return (
     <header className={`navbar ${scrolled ? 'navbar--solid' : ''}`}>
       <div className="container navbar__inner">
@@ -36,8 +40,8 @@ function Navbar({ theme, onToggleTheme }: NavbarProps) {
           <img src={logo} alt="Coca-Cola" className="navbar__logo" />
         </a>
 
-        <nav className="navbar__links" aria-label="Navegacao principal">
-          {LINKS.map((link) => (
+        <nav className="navbar__links" aria-label={lang === 'pt' ? 'Navegação principal' : 'Main navigation'}>
+          {links.map((link) => (
             <a key={link.href} href={link.href}>
               {link.label}
             </a>
@@ -45,31 +49,35 @@ function Navbar({ theme, onToggleTheme }: NavbarProps) {
         </nav>
 
         <div className="navbar__actions">
+          <LanguageToggle lang={lang} onToggle={toggleLanguage} />
           <ThemeToggle theme={theme} onToggle={onToggleTheme} />
           <a href="#mundo" className="navbar__cta">
-            Encontrar perto de mim
+            {t.nav.cta}
           </a>
+          <button
+            className="navbar__toggle"
+            aria-label={
+              open
+                ? lang === 'pt' ? 'Fechar menu' : 'Close menu'
+                : lang === 'pt' ? 'Abrir menu' : 'Open menu'
+            }
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
         </div>
-
-        <button
-          className="navbar__toggle"
-          aria-label={open ? 'Fechar menu' : 'Abrir menu'}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
       </div>
 
       {/* Menu movel */}
       <div className={`navbar__mobile ${open ? 'navbar__mobile--open' : ''}`}>
-        {LINKS.map((link) => (
+        {links.map((link) => (
           <a key={link.href} href={link.href} onClick={() => setOpen(false)}>
             {link.label}
           </a>
         ))}
         <a href="#mundo" onClick={() => setOpen(false)} className="navbar__mobile-cta">
-          Encontrar perto de mim
+          {t.nav.cta}
         </a>
       </div>
     </header>

@@ -1,0 +1,28 @@
+.language-toggle{
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  flex-shrink: 0;
+}
+
+.language-toggle span{
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text-dim);
+  transition: background 0.25s var(--ease-brand), color 0.25s ease;
+}
+
+.language-toggle span.is-active{
+  background: linear-gradient(135deg, var(--cc-red-bright), var(--cc-red));
+  color: #ffffff;
+}
+
+.language-toggle:hover span:not(.is-active){
+  color: var(--text);
+}

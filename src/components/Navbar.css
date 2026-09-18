@@ -116,6 +116,7 @@
   }
 
   .navbar__mobile{
+    display: flex;
     flex-direction: column;
     gap: 4px;
     max-height: 0;
@@ -129,8 +130,7 @@
   }
 
   .navbar__mobile a{
-    padding: 16px var(--container-w, 6vw);
-    padding-left: 6vw;
+    padding: 16px 6vw;
     font-size: 0.95rem;
     color: var(--text-dim);
     border-top: 1px solid rgba(255, 255, 255, 0.06);

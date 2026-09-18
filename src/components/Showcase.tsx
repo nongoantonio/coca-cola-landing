@@ -1,15 +1,11 @@
 import { useRef } from 'react'
 import bottle from '../assets/bottle.png'
 import can from '../assets/can.png'
+import { useLanguage } from '../i18n/LanguageContext'
 import './Showcase.css'
 
-const STATS = [
-  { value: '200+', label: 'Paises onde e vendida' },
-  { value: '1,9 mM', label: 'Servicos consumidos por dia' },
-  { value: '2', label: 'Formatos: garrafa e lata' },
-]
-
 function Showcase() {
+  const { t } = useLanguage()
   const stageRef = useRef<HTMLDivElement>(null)
 
   // Move a composicao ligeiramente de acordo com a posicao do rato (paralaxe)
@@ -42,20 +38,17 @@ function Showcase() {
           onMouseLeave={handleMouseLeave}
         >
           <div className="showcase__glow" aria-hidden="true" />
-          <img src={bottle} alt="Garrafa de Coca-Cola" className="showcase__bottle" />
-          <img src={can} alt="Lata de Coca-Cola" className="showcase__can" />
+          <img src={bottle} alt={t.showcase.bottleAlt} className="showcase__bottle" />
+          <img src={can} alt={t.showcase.canAlt} className="showcase__can" />
         </div>
 
         <div className="showcase__content">
-          <p className="section-kicker">Pelo mundo</p>
-          <h2 className="showcase__title">Um sabor, milhoes de historias.</h2>
-          <p className="showcase__lead">
-            De Lisboa a Tokyo, a mesma receita atravessa fronteiras e culturas
-            sem perder aquilo que a torna reconhecivel em qualquer lugar.
-          </p>
+          <p className="section-kicker">{t.showcase.kicker}</p>
+          <h2 className="showcase__title">{t.showcase.title}</h2>
+          <p className="showcase__lead">{t.showcase.lead}</p>
 
           <dl className="showcase__stats">
-            {STATS.map((stat) => (
+            {t.showcase.stats.map((stat) => (
               <div className="showcase__stat" key={stat.label}>
                 <dt>{stat.value}</dt>
                 <dd>{stat.label}</dd>

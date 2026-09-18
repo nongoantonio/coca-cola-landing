@@ -1,16 +1,11 @@
+import { useLanguage } from '../i18n/LanguageContext'
 import './Marquee.css'
 
-const ITEMS = [
-  'DESDE 1886',
-  'MAIS DE 200 PAISES',
-  'RECEITA ORIGINAL',
-  '1,9 MIL MILHOES DE SERVICOS POR DIA',
-  'FELICIDADE ENGARRAFADA',
-]
-
 function Marquee() {
+  const { t } = useLanguage()
+
   // Duplicamos a lista para o loop de scroll ficar continuo e sem cortes
-  const doubled = [...ITEMS, ...ITEMS]
+  const doubled = [...t.marquee, ...t.marquee]
 
   return (
     <div className="marquee">

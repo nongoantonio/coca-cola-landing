@@ -3,9 +3,12 @@ import { ChevronDown } from 'lucide-react'
 import can from '../assets/can.png'
 import heroIce from '../assets/hero-ice.jpg'
 import Bubbles from './Bubbles'
+import { useLanguage } from '../i18n/LanguageContext'
 import './Hero.css'
 
 function Hero() {
+  const { t } = useLanguage()
+
   // Dispara a sequencia de entrada uma unica vez, apos a montagem do componente
   const [ready, setReady] = useState(false)
 
@@ -31,27 +34,28 @@ function Hero() {
         </div>
 
         <div className="hero__copy">
-          <p className="section-kicker">Receita original desde 1886</p>
+          <p className="section-kicker">{t.hero.kicker}</p>
           <h1 className="hero__title">
-            Destape a felicidade a cada gole.
+            {t.hero.titleLine1}
+            <br />
+            {t.hero.titleLine2}
+            <br />
+            {t.hero.titleLine3}
           </h1>
-          <p className="hero__lead">
-            O mesmo sabor inconfundivel que junta geracoes a mesma mesa,
-            em mais de duzentos paises, todos os dias.
-          </p>
+          <p className="hero__lead">{t.hero.lead}</p>
           <div className="hero__actions">
             <a href="#sabor" className="btn btn--primary">
-              Descobrir o sabor
+              {t.hero.ctaPrimary}
             </a>
             <a href="#historia" className="btn btn--ghost">
-              Conhecer a historia
+              {t.hero.ctaSecondary}
             </a>
           </div>
         </div>
       </div>
 
-      <a href="#historia" className="hero__scroll" aria-label="Descer para a proxima seccao">
-        <span>Explorar</span>
+      <a href="#historia" className="hero__scroll" aria-label={t.hero.scroll}>
+        <span>{t.hero.scroll}</span>
         <ChevronDown size={18} />
       </a>
     </section>
