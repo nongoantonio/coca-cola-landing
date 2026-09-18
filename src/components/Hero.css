@@ -10,6 +10,25 @@
     var(--hero-bg);
 }
 
+.hero__bg-photo{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 70%;
+  z-index: 0;
+  opacity: 0.4;
+  filter: saturate(1.15) contrast(1.05);
+  /* veu escuro por cima da foto, para o texto e a lata continuarem legiveis */
+  mask-image: radial-gradient(65% 60% at 50% 45%, transparent 0%, rgba(0, 0, 0, 0.55) 55%, black 100%);
+}
+
+/* a foto so aparece no tema escuro: no tema claro entraria demasiado pesada */
+[data-theme='light'] .hero__bg-photo{
+  display: none;
+}
+
 .hero__glow{
   position: absolute;
   top: 4%;

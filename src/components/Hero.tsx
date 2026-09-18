@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import can from '../assets/can.png'
+import heroIce from '../assets/hero-ice.jpg'
 import Bubbles from './Bubbles'
 import './Hero.css'
 
@@ -15,6 +16,7 @@ function Hero() {
 
   return (
     <section id="topo" className={`hero ${ready ? 'hero--ready' : ''}`}>
+      <img src={heroIce} alt="" className="hero__bg-photo" aria-hidden="true" />
       <div className="hero__glow" />
       <Bubbles count={16} />
 
