@@ -18,15 +18,11 @@
   object-fit: cover;
   object-position: center 70%;
   z-index: 0;
-  opacity: 0.4;
+  opacity: var(--hero-photo-opacity);
+  mix-blend-mode: var(--hero-photo-blend);
   filter: saturate(1.15) contrast(1.05);
   /* veu escuro por cima da foto, para o texto e a lata continuarem legiveis */
   mask-image: radial-gradient(65% 60% at 50% 45%, transparent 0%, rgba(0, 0, 0, 0.55) 55%, black 100%);
-}
-
-/* a foto so aparece no tema escuro: no tema claro entraria demasiado pesada */
-[data-theme='light'] .hero__bg-photo{
-  display: none;
 }
 
 .hero__glow{
