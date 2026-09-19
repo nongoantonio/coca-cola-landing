@@ -8,6 +8,20 @@ Landing page moderna e animada da Coca-Cola, construída do zero com **React**, 
 
 ---
 
+## 📸 Pré-visualização
+
+| Modo escuro | Modo claro |
+| --- | --- |
+| ![Hero em modo escuro](docs/screenshot-hero-dark.jpg) | ![Hero em modo claro](docs/screenshot-hero-light.jpg) |
+
+| A nossa história | Pelo mundo |
+| --- | --- |
+| ![Secção de história](docs/screenshot-story.jpg) | ![Secção pelo mundo](docs/screenshot-showcase.jpg) |
+
+<img src="docs/screenshot-mobile.jpg" alt="Vista em telemóvel" width="260" />
+
+---
+
 ## ✨ Funcionalidades
 
 - **Hero** com garrafa em foco fotográfico, lata de destaque e mensagem de marca
