@@ -29,7 +29,7 @@
 }
 
 .navbar__logo{
-  height: 50px;
+  height: 60px;
   width: auto;
   transition: filter 0.3s ease, transform 0.3s ease;
 }

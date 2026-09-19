@@ -47,7 +47,7 @@
   --shadow-color: rgba(0, 0, 0, 0.55);
   --wordmark-fade: rgba(250, 243, 231, 0.45);
   --tint-red: rgba(200, 16, 46, 0.55);     /* halo vermelho de fundo */
-  --hero-photo-opacity: 0.4;
+  --hero-photo-opacity: 0.52;
   --hero-photo-blend: normal;
   --glow-red: rgba(255, 45, 63, 0.5);      /* brilho a volta dos produtos */
   --hero-bg: linear-gradient(155deg, #4a0710 0%, #23060a 45%, #0a0808 100%);
@@ -79,7 +79,7 @@
   --shadow-color: rgba(110, 11, 27, 0.2);
   --wordmark-fade: rgba(110, 11, 27, 0.55);
   --tint-red: rgba(200, 16, 46, 0.16);
-  --hero-photo-opacity: 0.22;
+  --hero-photo-opacity: 0.34;
   --hero-photo-blend: multiply;
   --glow-red: rgba(255, 45, 63, 0.2);
   --hero-bg: linear-gradient(155deg, #fdf1e6 0%, #fbe3d6 45%, #fdf6ec 100%);
@@ -138,21 +138,12 @@ ul{
 .section-kicker{
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   font-size: 0.8rem;
-  letter-spacing: 0.04em;
-  color: var(--cc-red);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
   font-weight: 600;
   margin-bottom: 14px;
-}
-
-.section-kicker::before{
-  content: '';
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--cc-red);
-  box-shadow: 0 0 12px var(--cc-red-bright);
 }
 
 /* Respeita utilizadores que preferem menos movimento */

@@ -36,12 +36,7 @@
 }
 
 .lifestyle__kicker{
-  color: #ffd7db;
-}
-
-.lifestyle__kicker::before{
-  background: #ffffff;
-  box-shadow: 0 0 12px #ffffff;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .lifestyle__quote{
