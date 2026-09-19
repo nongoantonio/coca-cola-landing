@@ -16,7 +16,7 @@ function XIcon(props: SVGProps<SVGSVGElement>) {
 }
 
 function Footer() {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
 
   // Estado local apenas para dar feedback visual ao subscrever a newsletter
   const [email, setEmail] = useState('')
@@ -44,7 +44,6 @@ function Footer() {
           <input
             type="email"
             required
-            placeholder={t.footer.emailPlaceholder}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             aria-label={t.footer.emailLabel}
@@ -93,8 +92,17 @@ function Footer() {
 
       <div className="container footer__credit">
         <p>
-          Site desenvolvido por <strong>Nongo António</strong>
-          <span className="footer__credit-role"> — Software Engineer · Web Development · UI/UX Design</span>
+          {lang === 'pt' ? (
+            <>
+              Site desenvolvido por <strong>Nongo António</strong>
+              <span className="footer__credit-role"> — Software Engineer · Web Development · UI/UX Design</span>
+            </>
+          ) : (
+            <>
+              Site built by <strong>Nongo António</strong>
+              <span className="footer__credit-role"> — Software Engineer · Web Development · UI/UX Design</span>
+            </>
+          )}
         </p>
         <div className="footer__credit-tags">
           <span>Software Engineer</span>
