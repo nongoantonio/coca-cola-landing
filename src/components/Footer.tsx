@@ -90,6 +90,18 @@ function Footer() {
           ))}
         </div>
       </div>
+
+      <div className="container footer__credit">
+        <p>
+          Site desenvolvido por <strong>Nongo António</strong>
+          <span className="footer__credit-role"> — Software Engineer · Web Development · UI/UX Design</span>
+        </p>
+        <div className="footer__credit-tags">
+          <span>Software Engineer</span>
+          <span>Remote Friendly</span>
+          <span>Angola</span>
+        </div>
+      </div>
     </footer>
   )
 }
