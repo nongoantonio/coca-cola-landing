@@ -29,14 +29,12 @@
 }
 
 .navbar__logo{
-  height: 42px;
+  height: 50px;
   width: auto;
-  filter: drop-shadow(0 0 14px rgba(255, 45, 63, 0.55));
   transition: filter 0.3s ease, transform 0.3s ease;
 }
 
 .navbar__brand:hover .navbar__logo{
-  filter: drop-shadow(0 0 18px rgba(255, 45, 63, 0.8));
   transform: scale(1.04);
 }
 

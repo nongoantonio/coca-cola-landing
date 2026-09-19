@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
-import { ChevronDown } from 'lucide-react'
 import can from '../assets/can.png'
 import heroIce from '../assets/hero-ice.jpg'
 import Bubbles from './Bubbles'
 import { useLanguage } from '../i18n/LanguageContext'
 import './Hero.css'
 
+// Hero em duas colunas: texto a esquerda, imagem a direita - a mesma
+// estrutura da referencia, mas com a nossa lata sobreposta a foto do
+// gelo, para juntar os dois elementos num unico bloco visual.
 function Hero() {
   const { t } = useLanguage()
 
@@ -19,20 +21,10 @@ function Hero() {
 
   return (
     <section id="topo" className={`hero ${ready ? 'hero--ready' : ''}`}>
-      <img src={heroIce} alt="" className="hero__bg-photo" aria-hidden="true" />
       <div className="hero__glow" />
-      <Bubbles count={16} />
+      <Bubbles count={12} />
 
-      <div className="container hero__stage">
-        <div className="hero__visual">
-          <div className="hero__wordmark" aria-hidden="true">
-            <span className="hero__word hero__word--left">COCA</span>
-            <span className="hero__word hero__word--right">COLA</span>
-          </div>
-
-          <img src={can} alt="" className="hero__can" />
-        </div>
-
+      <div className="container hero__grid">
         <div className="hero__copy">
           <p className="section-kicker">{t.hero.kicker}</p>
           <h1 className="hero__title">
@@ -52,12 +44,13 @@ function Hero() {
             </a>
           </div>
         </div>
-      </div>
 
-      <a href="#historia" className="hero__scroll" aria-label={t.hero.scroll}>
-        <span>{t.hero.scroll}</span>
-        <ChevronDown size={18} />
-      </a>
+        <div className="hero__media">
+          <img src={heroIce} alt="" className="hero__photo" />
+          <div className="hero__photo-veil" aria-hidden="true" />
+          <img src={can} alt="Lata de Coca-Cola" className="hero__can" />
+        </div>
+      </div>
     </section>
   )
 }

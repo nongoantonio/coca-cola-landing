@@ -175,12 +175,19 @@ input:focus-visible{
 }
 
 /* =========================================================
-   AJUSTES DO TEMA CLARO
+   LOGOTIPO NA NAVBAR
    O logotipo fornecido e branco: no fundo claro passa a preto,
    para continuar legivel sem precisar de um segundo ficheiro.
+   No escuro ganha um brilho vermelho suave; no claro, uma sombra
+   discreta em vez de brilho colorido, que ficaria sujo sobre o creme.
    ========================================================= */
+[data-theme='dark'] .navbar__logo,
+:root:not([data-theme='light']) .navbar__logo{
+  filter: drop-shadow(0 0 14px rgba(255, 45, 63, 0.6));
+}
+
 [data-theme='light'] .navbar__logo{
-  filter: brightness(0) drop-shadow(0 0 14px rgba(255, 45, 63, 0.45));
+  filter: brightness(0) drop-shadow(0 2px 3px rgba(27, 18, 17, 0.25));
 }
 
 [data-theme='light'] .footer__logo{
