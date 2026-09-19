@@ -1,8 +1,19 @@
 import { useState } from 'react'
-import { Instagram, Facebook, Youtube, Twitter, ArrowRight } from 'lucide-react'
+import type { SVGProps } from 'react'
+import { Instagram, Facebook, Youtube, ArrowRight } from 'lucide-react'
 import logo from '../assets/logo.png'
 import { useLanguage } from '../i18n/LanguageContext'
 import './Footer.css'
+
+// Icone do X (antigo Twitter): a lucide-react so tem o passaro antigo,
+// por isso desenhamos o "X" a mao, do mesmo tamanho que os outros icones.
+function XIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M18.9 2h3.1l-7.6 8.7L23 22h-6.9l-5.4-6.6L4.6 22H1.5l8.1-9.3L1 2h7.1l4.9 6.1L18.9 2Zm-1.2 18h1.9L7.4 4H5.4l12.3 16Z" />
+    </svg>
+  )
+}
 
 function Footer() {
   const { t } = useLanguage()
@@ -53,7 +64,7 @@ function Footer() {
             <a href="#" aria-label="Instagram"><Instagram size={18} /></a>
             <a href="#" aria-label="Facebook"><Facebook size={18} /></a>
             <a href="#" aria-label="YouTube"><Youtube size={18} /></a>
-            <a href="#" aria-label="Twitter"><Twitter size={18} /></a>
+            <a href="#" aria-label="X (Twitter)"><XIcon width={18} height={18} /></a>
           </div>
         </div>
 

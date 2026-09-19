@@ -21,6 +21,7 @@ function Hero() {
 
   return (
     <section id="topo" className={`hero ${ready ? 'hero--ready' : ''}`}>
+      <img src={heroIce} alt="" className="hero__bg-photo" aria-hidden="true" />
       <div className="hero__glow" />
       <Bubbles count={12} />
 
@@ -46,8 +47,6 @@ function Hero() {
         </div>
 
         <div className="hero__media">
-          <img src={heroIce} alt="" className="hero__photo" />
-          <div className="hero__photo-veil" aria-hidden="true" />
           <img src={can} alt="Lata de Coca-Cola" className="hero__can" />
         </div>
       </div>
