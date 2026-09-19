@@ -1,9 +1,8 @@
-import { Sparkles, Snowflake, Leaf, Globe2 } from 'lucide-react'
 import { useLanguage } from '../i18n/LanguageContext'
 import './Features.css'
 
-const ICONS = [Sparkles, Snowflake, Leaf, Globe2]
-
+// Cartoes sem icones: apenas numero, titulo e texto - uma leitura mais
+// editorial e sobria, sem o "ruido" de icones genericos.
 function Features() {
   const { t } = useLanguage()
 
@@ -16,18 +15,13 @@ function Features() {
         </div>
 
         <div className="features__grid">
-          {t.features.items.map(({ title, text }, i) => {
-            const Icon = ICONS[i]
-            return (
-              <article className="features__card" key={title}>
-                <div className="features__icon">
-                  <Icon size={22} strokeWidth={1.8} />
-                </div>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </article>
-            )
-          })}
+          {t.features.items.map(({ title, text }, i) => (
+            <article className="features__card" key={title}>
+              <span className="features__index">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>

@@ -36,15 +36,33 @@
   pointer-events: none;
 }
 
-/* --- Grelha principal: texto a esquerda, imagem a direita --- */
+/* --- So a coluna de texto: o lado direito fica livre para a foto de fundo --- */
 .hero__grid{
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr);
-  align-items: center;
-  gap: clamp(32px, 5vw, 72px);
   width: 100%;
+}
+
+.hero__copy{
+  max-width: 620px;
+}
+
+/* --- Lata pequena, ao lado do rotulo, ao inves do grafismo grande --- */
+.hero__eyebrow{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.hero__eyebrow .section-kicker{
+  margin-bottom: 0;
+}
+
+.hero__can-small{
+  height: 46px;
+  width: auto;
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.45));
 }
 
 /* --- Coluna de texto --- */
@@ -116,31 +134,6 @@
   transform: translateY(-2px);
 }
 
-/* --- Coluna direita: so a lata, a flutuar sobre o fundo com foto --- */
-.hero__media{
-  position: relative;
-  height: clamp(360px, 44vw, 560px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transform: scale(0.94);
-  transition: opacity 0.9s var(--ease-brand) 0.3s, transform 0.9s var(--ease-brand) 0.3s;
-}
-
-.hero--ready .hero__media{
-  opacity: 1;
-  transform: scale(1);
-}
-
-.hero__can{
-  height: clamp(200px, 26vw, 340px);
-  transform: rotate(-4deg);
-  filter:
-    drop-shadow(0 35px 50px rgba(0, 0, 0, 0.55))
-    drop-shadow(0 0 80px var(--glow-red));
-}
-
 .hero__scroll{
   position: absolute;
   bottom: 28px;
@@ -163,11 +156,12 @@
 }
 
 @media (max-width: 940px){
-  .hero__grid{
-    grid-template-columns: 1fr;
-  }
   .hero__copy{
+    max-width: 100%;
     text-align: center;
+  }
+  .hero__eyebrow{
+    justify-content: center;
   }
   .hero__lead{
     margin-left: auto;
@@ -176,16 +170,13 @@
   .hero__actions{
     justify-content: center;
   }
-  .hero__media{
-    height: clamp(320px, 70vw, 420px);
-  }
 }
 
 @media (max-width: 640px){
   .hero{
     padding: 110px 0 70px;
   }
-  .hero__can{
-    height: clamp(160px, 42vw, 220px);
+  .hero__can-small{
+    height: 38px;
   }
 }

@@ -8,6 +8,9 @@ import './Hero.css'
 // Hero em duas colunas: texto a esquerda, imagem a direita - a mesma
 // estrutura da referencia, mas com a nossa lata sobreposta a foto do
 // gelo, para juntar os dois elementos num unico bloco visual.
+// Hero: texto a esquerda com uma lata pequena ao lado do titulo; o lado
+// direito nao tem grafismo proprio, so a foto de fundo (garrafa no gelo)
+// como enfase visual, sem elementos a competir com ela.
 function Hero() {
   const { t } = useLanguage()
 
@@ -27,7 +30,10 @@ function Hero() {
 
       <div className="container hero__grid">
         <div className="hero__copy">
-          <p className="section-kicker">{t.hero.kicker}</p>
+          <div className="hero__eyebrow">
+            <img src={can} alt="Lata de Coca-Cola" className="hero__can-small" />
+            <p className="section-kicker">{t.hero.kicker}</p>
+          </div>
           <h1 className="hero__title">
             {t.hero.titleLine1}
             <br />
@@ -44,10 +50,6 @@ function Hero() {
               {t.hero.ctaSecondary}
             </a>
           </div>
-        </div>
-
-        <div className="hero__media">
-          <img src={can} alt="Lata de Coca-Cola" className="hero__can" />
         </div>
       </div>
     </section>
