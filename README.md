@@ -5,6 +5,9 @@ Landing page moderna e animada da Coca-Cola, construída do zero com **React**, 
 ![tech](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
 ![tech](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
 ![tech](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white)
+![deploy](https://img.shields.io/badge/deploy-Vercel-black?logo=vercel&logoColor=white)
+
+### 🔗 [Ver o site ao vivo](https://coca-cola-landing-phi.vercel.app)
 
 ---
 
