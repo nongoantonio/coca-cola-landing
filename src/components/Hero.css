@@ -87,8 +87,13 @@
   font-weight: 600;
   line-height: 1.18;
   margin-bottom: 20px;
-  /* CORRECAO: cor explicita, para ganhar de qualquer regra global de h1 */
-  color: var(--text);
+}
+
+/* CORRECAO: regra global de h1/h2 do tema claro (ex.: :root[data-theme="light"] h1)
+   tem mais especificidade que .hero__title e ganhava. Aqui forcamos a cor
+   clara do hero, independente do tema do site. */
+.hero .hero__copy .hero__title{
+  color: #fbf1e6 !important;
 }
 
 .hero__lead{

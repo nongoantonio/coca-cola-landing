@@ -9,6 +9,20 @@
   transition: background 0.4s var(--ease-brand), padding 0.4s var(--ease-brand), box-shadow 0.4s var(--ease-brand);
 }
 
+/* Barra transparente por cima do hero: variaveis fixas no visual escuro.
+   Definidas diretamente no elemento, por isso todos os filhos (links,
+   toggles de idioma/tema, botao) herdam sempre cores claras. */
+.navbar--over-hero{
+  --text: #fbf1e6;
+  --text-dim: rgba(251, 241, 230, 0.75);
+  --border-strong: rgba(255, 255, 255, 0.28);
+  color: #fbf1e6;
+}
+
+.navbar--over-hero .navbar__logo{
+  filter: brightness(0) invert(1);
+}
+
 .navbar--solid{
   padding: 14px 0;
   background: var(--nav-bg);
@@ -80,6 +94,7 @@
 
 .navbar__cta{
   border: 1px solid var(--border-strong);
+  color: var(--text);
   padding: 10px 20px;
   border-radius: 999px;
   font-size: 0.85rem;

@@ -22,6 +22,7 @@ function Navbar({ theme, onToggleTheme }: NavbarProps) {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
+    onScroll()
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -34,7 +35,13 @@ function Navbar({ theme, onToggleTheme }: NavbarProps) {
   ]
 
   return (
-    <header className={`navbar ${scrolled ? 'navbar--solid' : ''}`}>
+    // Enquanto a barra esta transparente (por cima do hero escuro), fica
+    // presa no tema escuro. Quando ganha fundo solido (scroll), segue o
+    // tema escolhido pelo utilizador.
+    <header
+      className={`navbar ${scrolled ? 'navbar--solid' : 'navbar--over-hero'}`}
+      data-theme={scrolled ? theme : 'dark'}
+    >
       <div className="container navbar__inner">
         <a href="#topo" className="navbar__brand">
           <img src={logo} alt="Coca-Cola" className="navbar__logo" />
