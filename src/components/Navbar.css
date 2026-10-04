@@ -19,7 +19,18 @@
   color: #fbf1e6;
 }
 
+/* Logo branco por cima do hero escuro */
 .navbar--over-hero .navbar__logo{
+  filter: brightness(0) invert(1);
+}
+
+/* Logo vermelho Coca-Cola quando a barra tem fundo claro (modo claro + scroll) */
+.navbar--solid[data-theme="light"] .navbar__logo{
+  filter: brightness(0) saturate(100%) invert(14%) sepia(96%) saturate(6500%) hue-rotate(352deg) brightness(95%) contrast(110%);
+}
+
+/* Logo branco quando a barra solida esta em modo escuro */
+.navbar--solid[data-theme="dark"] .navbar__logo{
   filter: brightness(0) invert(1);
 }
 
