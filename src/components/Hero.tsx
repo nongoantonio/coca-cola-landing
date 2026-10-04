@@ -23,7 +23,11 @@ function Hero() {
   }, [])
 
   return (
-    <section id="topo" className={`hero ${ready ? 'hero--ready' : ''}`}>
+    // data-theme="dark" fixo: o Hero mantem-se sempre no visual escuro,
+    // mesmo quando o resto do site esta em modo claro. As variaveis de
+    // cor (--text, --hero-bg, --tint-red, etc.) ficam "presas" no escuro
+    // aqui dentro, sem afetar as restantes seccoes.
+    <section id="topo" data-theme="dark" className={`hero ${ready ? 'hero--ready' : ''}`}>
       <img src={heroIce} alt="" className="hero__bg-photo" aria-hidden="true" />
       <div className="hero__glow" />
       <Bubbles count={12} />
