@@ -8,6 +8,10 @@
   background:
     radial-gradient(70% 60% at 15% 30%, var(--tint-red), transparent 65%),
     var(--hero-bg);
+  /* CORRECAO: o data-theme="dark" so redefine as variaveis, nao a cor herdada.
+     Sem isto, o titulo (h1) herdava a cor escura do body quando o site
+     estava em modo claro. Agora a cor e resolvida dentro do tema escuro. */
+  color: var(--text);
 }
 
 .hero__bg-photo{
@@ -83,6 +87,8 @@
   font-weight: 600;
   line-height: 1.18;
   margin-bottom: 20px;
+  /* CORRECAO: cor explicita, para ganhar de qualquer regra global de h1 */
+  color: var(--text);
 }
 
 .hero__lead{
